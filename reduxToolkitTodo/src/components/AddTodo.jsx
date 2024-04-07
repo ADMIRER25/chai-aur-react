@@ -1,19 +1,21 @@
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import {addTodo} from '../features/todo/todoSlice' 
 
 function AddTodo() {
 
     const [input, setInput] = useState('')
+    // const todos = useSelector(state => state.todos) // use selector helps to rerender
     const dispatch = useDispatch()
 
     const addTodoHandler = (e) => {
         e.preventDefault()
         dispatch(addTodo(input))
-        setInput('')
+        // setInput('')
     }
-
   return (
+    <>
+    {console.log("inside AddTodo Component")}
     <form onSubmit={addTodoHandler} className="space-x-3 mt-12">
       <input
         type="text"
@@ -29,6 +31,7 @@ function AddTodo() {
         Add Todo
       </button>
     </form>
+    </>
   )
 }
 
