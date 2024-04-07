@@ -32,18 +32,18 @@ function App() {
   useEffect(() => {
     //this is the todos from local storage
     const todos = JSON.parse(localStorage.getItem("todos"))
-    console.log("UseEffect call from non dependency")
-    console.log(`inside non dependency : ${todos}`);
+    // console.log("UseEffect call from non dependency")
+    // console.log(`inside non dependency : ${todos}`);
     if (todos && todos.length > 0) {
-      console.log("1settodos")
+      // console.log("1settodos")
       setTodos(todos)
-      console.log("2settodos")
+      // console.log("2settodos")
     }
   }, [])
 
   useEffect(() => {
-    console.log("useEffect call from dependency")
-    console.log(`inside dependency : ${todos}`);
+    // console.log("useEffect call from dependency")
+    // console.log(`inside dependency : ${todos}`);
     localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
   

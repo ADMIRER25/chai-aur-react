@@ -11,6 +11,9 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
+        attachState:(state,action)=>{
+            state.todos = action.payload;
+        },
         addTodo: (state, action) => {
             const todo = {
                 id: nanoid(), 
@@ -24,6 +27,6 @@ export const todoSlice = createSlice({
     }
 })
 
-export const {addTodo, removeTodo} = todoSlice.actions
+export const {attachState,addTodo, removeTodo} = todoSlice.actions
 
 export default todoSlice.reducer
